@@ -1,19 +1,31 @@
+import turtle
 from turtle import Turtle, Screen
 import random
 
+turtle.colormode(255)
 tim = Turtle()
 
-colours = ["CornflowerBlue", "DarkOrchid", "IndianRed", "DeepSkyBlue", "LightSeaGreen", "wheat", "SlateGray", "SeaGreen"]
+#colours = ["CornflowerBlue", "DarkOrchid", "IndianRed", "DeepSkyBlue", "LightSeaGreen", "wheat", "SlateGray", "SeaGreen"]
+def random_color():
+    r = random.randint(0,255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    random_color = (r,g,b)
+    return random_color
+
+
 tim.shape("turtle")
 
 
-directions = [0,90,180,270]
-
-tim.pensize(5)
+directions = 0
+tim.speed(30)
+tim.pensize(2)
 for _ in range(200):
-    tim.color(random.choice(colours))
-    tim.forward(30)
-    tim.setheading(random.choice(directions))
+    tim.color(random_color())
+    tim.setheading(directions)
+    directions += 5
+    tim.circle(100)
+
 
 
 # def left():
